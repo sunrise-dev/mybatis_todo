@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Racks>
+
+    <!--
+        查询衣架语句, 表 RackInfo; 字段 id 衣架号, 制单 momno, 流水线号 line, 衣架位置 pos
+     -->
+    <GetRacks>
+            select * from RackInfo where line = @line
+    </GetRacks>
+
+    <!--
+        查询衣架语句
+     -->
+    <GetRacksCount>
+        select count(0) from RackInfo where line = @line
+    </GetRacksCount>
+
+    <!--
+        更新语句
+     -->
+    <UpdateRack>
+            update RackInfo set pos = @pos where id = @id
+    </UpdateRack>
+
+
+    <!--
+    插入语句
+ -->
+    <AddRack>
+            insert into RackInfo(id, pos) values(@id, @pos)
+    </AddRack>
+
+    <!--
+        删除语句
+     -->
+    <DelRack>
+			delete from RackInfo where id = @id
+    </DelRack>
+
+
+</Racks>
